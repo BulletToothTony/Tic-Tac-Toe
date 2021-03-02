@@ -5,22 +5,24 @@
 // module
 const gameBoard = (() => {
     const board = ["X", "O", "X", "O", "X", "X", "X", "X", "O"];
-    return {
-        board
-    }
+    return {board}
 })();
 
 
-const player = (name) => {
+const createPlayer = (name, marker) => {
     const move = () => console.log(`my name is ${name}`)
-    return {move}
+    return {move, marker}
 }
 
-function renderGameBoard() {
-    gameBoard()
-    for (let i = 0; i< board.length; i++) {
+const player1 = createPlayer('Player 1', 'X');
+const player2 = createPlayer('Player 2', 'O');
+
+
+const renderGameBoard = (() => {
+    const board = {gameBoard};
+    for (let i = 0; i< board.gameBoard.board.length; i++) {
         console.log(i)
+        console.log(board.gameBoard.board[i])
     }
-}
-
-renderGameBoard()
+    console.log(board)
+})();
