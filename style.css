@@ -17,6 +17,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 3px solid black;
 }
 
 h1 {
@@ -31,4 +32,23 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+}
+
+.insideDiv {
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+
+}
+
+.resetBtn {
+    margin-top: 75px;
+    padding: 10px;
+    background-color: greenyellow;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
 }
