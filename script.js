@@ -42,21 +42,26 @@ const player2 = createPlayer('Player 2', 'O');
 const renderGameBoard = (() => {
     const board = {gameBoard};
     const resetBtn = document.getElementById('resetBtn')
-    for (let i = 0; i< board.gameBoard.board.length; i++) {
-        console.log(i)
-        console.log(board.gameBoard.board[i])
-        divs[i].innerHTML = board.gameBoard.board[i];
-    }
-    console.log(board)
 
-    resetBtn.addEventListener('click', (e) => {
-        console.log(e)
-        gameBoard.reset();
+    const updateBoard = () => {
         for (let i = 0; i< board.gameBoard.board.length; i++) {
             console.log(i)
             console.log(board.gameBoard.board[i])
             divs[i].innerHTML = board.gameBoard.board[i];
         }
+    }
+    // for (let i = 0; i< board.gameBoard.board.length; i++) {
+    //     console.log(i)
+    //     console.log(board.gameBoard.board[i])
+    //     divs[i].innerHTML = board.gameBoard.board[i];
+    // }
+    updateBoard()
+    console.log(board)
+
+    resetBtn.addEventListener('click', (e) => {
+        console.log(e)
+        gameBoard.reset();
+        updateBoard();
     });
 
     const player1 = createPlayer('Player 1', 'X');
