@@ -18,7 +18,15 @@ function markerPlace(e) {
 // module
 const gameBoard = (() => {
     const board = ["X", "X", "X", "X", "O", "O", "X", "O", "O"];
-    return {board}
+
+
+    const reset = () => {
+        for (let i = 0; i < board.length; i++) {
+            board[i] = '';
+        }
+    };
+
+    return {board, reset};
 })();
 
 
@@ -33,12 +41,23 @@ const player2 = createPlayer('Player 2', 'O');
 
 const renderGameBoard = (() => {
     const board = {gameBoard};
+    const resetBtn = document.getElementById('resetBtn')
     for (let i = 0; i< board.gameBoard.board.length; i++) {
         console.log(i)
         console.log(board.gameBoard.board[i])
         divs[i].innerHTML = board.gameBoard.board[i];
     }
     console.log(board)
+
+    resetBtn.addEventListener('click', (e) => {
+        console.log(e)
+        gameBoard.reset();
+        for (let i = 0; i< board.gameBoard.board.length; i++) {
+            console.log(i)
+            console.log(board.gameBoard.board[i])
+            divs[i].innerHTML = board.gameBoard.board[i];
+        }
+    });
 
     const player1 = createPlayer('Player 1', 'X');
     const player2 = createPlayer('Player 2', 'O');
