@@ -1,24 +1,17 @@
 // Rule of thumb: if you only ever need ONE of something (gameBoard, displayController), use a module. 
 // If you need multiples of something (players!), create them with factories.
 divs = document.getElementsByClassName('insideDiv');
+playerTurn = document.getElementById('playerTurn')
+
 
 for (let i = 0; i<divs.length; i++) {
     divs[i].addEventListener('click', markerPlace)
 }
 
-function markerPlace(e) {
-    console.log(e)
-    if (e.target.innerHTML == 'X') {
-        e.target.innerHTML = 'O';
-    } else {
-        e.target.innerHTML = 'X';
-    }
-    checkBoard()
-}
 
 // module
 const gameBoard = (() => {
-    const board = ["X", "X", "X", "X", "O", "O", "X", "O", "O"];
+    const board = ["", "", "", "X", "O", "O", "X", "O", "O"];
 
 
     const reset = () => {
@@ -32,12 +25,39 @@ const gameBoard = (() => {
 
 
 const createPlayer = (name, marker) => {
-    const move = () => console.log(`my name is ${name}`)
+    const move = () => console.log(`${name}`)
     return {move, marker}
 }
 
 const player1 = createPlayer('Player 1', 'X');
 const player2 = createPlayer('Player 2', 'O');
+
+console.log('playeersss')
+console.log(player1.marker)
+console.log(player2.marker)
+player1.move()
+x = player1.move()
+
+playerTurn.innerHTML = player1.marker
+
+function markerPlace(e) {
+    console.log(e)
+    if (playerTurn.innerHTML == 'X') {
+        e.target.innerHTML = 'X';
+        playerTurn.innerHTML = player2.marker
+        checkCurrentPlayer()
+    } else if (playerTurn.innerHTML == 'O') {
+        e.target.innerHTML = 'O';
+        playerTurn.innerHTML = player1.marker
+        checkCurrentPlayer()
+    }
+    checkBoard()
+}
+
+
+function checkCurrentPlayer() {
+    console.log(player1.marker)
+}
 
 
 const playGame = (() => {
@@ -55,7 +75,6 @@ const playGame = (() => {
     const markPlace = (e) => {
         console.log(e + 'burrrrrrrrrrrrrr')
     }
-
 
 
 })();
