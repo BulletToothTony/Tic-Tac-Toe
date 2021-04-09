@@ -63,3 +63,83 @@ h1 {
 .xWinClass {
     text-align: center;
 }
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+    h1 {
+        font-size: 2rem;
+    }
+
+    .gameBoard {
+        width: 350px;
+        height: 350px;
+    }
+
+    .playerTurn {
+        height: 75px;
+    }
+
+    .resetBtn {
+        margin-top: 25px;
+    }
+}
+    
+    
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 481px) and (max-device-width : 768px) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 769px) and (max-device-width : 1024px) {
+    /* Styles */
+    h1 {
+        font-size: 4rem;
+    }
+
+    .gameBoard {
+        width: 600px;
+        height: 600px;
+    }
+
+    .insideDiv {
+        font-size: 7rem;
+    }
+
+    .playerTurn {
+        height: 200px;
+    }
+
+    .resetBtn {
+        font-size: 2rem;
+        margin-top: 50px;
+    }
+
+}
+
+@media only screen and (min-width : 1025px) {
+    /* Styles */
+    h1 {
+        font-size: 4rem;
+    }
+
+    .gameBoard {
+        width: 600px;
+        height: 600px;
+    }
+
+    .insideDiv {
+        font-size: 8rem;
+    }
+
+    .playerTurn {
+        height: 200px;
+    }
+
+    .resetBtn {
+        font-size: 3rem;
+        margin-top: 50px;
+    }
+
+    }
