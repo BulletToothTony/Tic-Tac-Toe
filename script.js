@@ -79,30 +79,52 @@ function checkCurrentPlayer() {
     console.log(player1.marker)
 }
 
+function xWin() {
+    xwin = document.createElement('h1')
+    xwin.innerHTML = 'X wins!'
+    xwin.classList.add('xWinClass')
+
+    span = document.getElementById('playerTurn')
+
+    span.appendChild(xwin)
+    
+}
+
+function oWin() {
+    owin = document.createElement('h1')
+    owin.innerHTML = 'O wins!'
+    owin.classList.add('xWinClass')
+
+    span = document.getElementById('playerTurn')
+
+    span.appendChild(owin)
+}
+
 function checkWinner() {
     if (gameBoard.board[0] == 'X' && gameBoard.board[1] == 'X' && gameBoard.board[2] == 'X') {
-        alert('X Wins')
+        // alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[3] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[5] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[6] == 'X' && gameBoard.board[7] == 'X' && gameBoard.board[8] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[0] == 'X' && gameBoard.board[3] == 'X' && gameBoard.board[6] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[1] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[7] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[2] == 'X' && gameBoard.board[5] == 'X' && gameBoard.board[8] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[2] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[6] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
     else if (gameBoard.board[0] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[8] == 'X')  {
-        alert('X Wins')
+        xWin()
     }
 
 
@@ -110,29 +132,30 @@ function checkWinner() {
 
 
     // Noughts Wins
-    else if (gameBoard.board[0] == 'X' && gameBoard.board[1] == 'X' && gameBoard.board[2] == 'X') {
-        alert('O Wins')
+    else if (gameBoard.board[0] == 'O' && gameBoard.board[1] == 'O' && gameBoard.board[2] == 'O') {
+        // alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[3] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[5] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[6] == 'O' && gameBoard.board[7] == 'O' && gameBoard.board[8] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[0] == 'O' && gameBoard.board[3] == 'O' && gameBoard.board[6] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[1] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[7] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[2] == 'O' && gameBoard.board[5] == 'O' && gameBoard.board[8] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[2] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[6] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
     else if (gameBoard.board[0] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[8] == 'O')  {
-        alert('O Wins')
+        oWin()
     }
 }
 
