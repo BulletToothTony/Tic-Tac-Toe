@@ -14,9 +14,10 @@ const gameBoard = (() => {
 
 
     const reset = () => {
-        for (let i = 0; i < board.length; i++) {
-            board[i] = '';
-        }
+        // for (let i = 0; i < board.length; i++) {
+        //     board[i] = '';
+        // }
+        location.reload();
     };
 
     return {board, reset};
