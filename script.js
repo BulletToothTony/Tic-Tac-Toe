@@ -4,14 +4,13 @@ divs = document.getElementsByClassName('insideDiv');
 playerTurn = document.getElementById('playerTurn')
 
 
-for (let i = 0; i<divs.length; i++) {
-    divs[i].addEventListener('click', markerPlace)
-}
+
+
 
 
 // module
 const gameBoard = (() => {
-    const board = ["", "", "", "X", "O", "O", "X", "O", "O"];
+    const board = ["", "", "", "", "", "", "", "", ""];
 
 
     const reset = () => {
@@ -23,6 +22,17 @@ const gameBoard = (() => {
     return {board, reset};
 })();
 
+for (let i = 0; i<divs.length; i++) {
+    for (let j = 0; j < gameBoard.board.length; j++) {
+    divs[i].addEventListener('click', markerPlace)
+    if (divs[i].id == gameBoard.board[j]) {
+        gameBoard.board.unshift(divs[i].innerHTML)
+        console.log(gameBoard.board)
+    }
+    // x = divs[i].innerHTML;
+    // gameBoard.board.push(x)
+    }
+}
 
 const createPlayer = (name, marker) => {
     const move = () => console.log(`${name}`)
@@ -45,11 +55,21 @@ function markerPlace(e) {
     if (playerTurn.innerHTML == 'X') {
         e.target.innerHTML = 'X';
         playerTurn.innerHTML = player2.marker
+        // gameBoard.board.unshift(e.target.innerHTML)
+        // console.log(gameBoard.board)
+        console.log(e.target.id)
+        gameBoard.board.splice(e.target.id, 1, e.target.innerHTML)
+        console.log(gameBoard.board)
         checkCurrentPlayer()
+        checkWinner()
     } else if (playerTurn.innerHTML == 'O') {
         e.target.innerHTML = 'O';
         playerTurn.innerHTML = player1.marker
+        console.log(e.target.id)
+        gameBoard.board.splice(e.target.id, 1, e.target.innerHTML)
+        console.log(gameBoard.board)
         checkCurrentPlayer()
+        checkWinner()
     }
     checkBoard()
 }
@@ -59,6 +79,62 @@ function checkCurrentPlayer() {
     console.log(player1.marker)
 }
 
+function checkWinner() {
+    if (gameBoard.board[0] == 'X' && gameBoard.board[1] == 'X' && gameBoard.board[2] == 'X') {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[3] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[5] == 'X')  {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[6] == 'X' && gameBoard.board[7] == 'X' && gameBoard.board[8] == 'X')  {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[0] == 'X' && gameBoard.board[3] == 'X' && gameBoard.board[6] == 'X')  {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[1] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[7] == 'X')  {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[2] == 'X' && gameBoard.board[5] == 'X' && gameBoard.board[8] == 'X')  {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[2] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[6] == 'X')  {
+        alert('X Wins')
+    }
+    else if (gameBoard.board[0] == 'X' && gameBoard.board[4] == 'X' && gameBoard.board[8] == 'X')  {
+        alert('X Wins')
+    }
+
+
+
+
+
+    // Noughts Wins
+    else if (gameBoard.board[0] == 'X' && gameBoard.board[1] == 'X' && gameBoard.board[2] == 'X') {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[3] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[5] == 'O')  {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[6] == 'O' && gameBoard.board[7] == 'O' && gameBoard.board[8] == 'O')  {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[0] == 'O' && gameBoard.board[3] == 'O' && gameBoard.board[6] == 'O')  {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[1] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[7] == 'O')  {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[2] == 'O' && gameBoard.board[5] == 'O' && gameBoard.board[8] == 'O')  {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[2] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[6] == 'O')  {
+        alert('O Wins')
+    }
+    else if (gameBoard.board[0] == 'O' && gameBoard.board[4] == 'O' && gameBoard.board[8] == 'O')  {
+        alert('O Wins')
+    }
+}
 
 const playGame = (() => {
     const board = {gameBoard}
